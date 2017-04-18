@@ -16,10 +16,9 @@ Parse.Cloud.define('pushChannelTest', function(request, response) {
   var pushQuery = new Parse.Query(Parse.Installation);
   pushQuery.equalTo("deviceType", "android");
 
-  var payload =
-  {
+  var payload = {
     "alert": message,
-    "customdata": customData;
+    "customdata": customData
   };
 
 
