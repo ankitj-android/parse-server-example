@@ -28,7 +28,7 @@ Parse.Cloud.define('pushChannelTest', function(request, response) {
 
   Parse.Push.send({
   where: pushQuery,
-  data: payload,     // for sending to a specific channel                                                                                                                                 data: payload,
+  payload,     // for sending to a specific channel                                                                                                                                 data: payload,
   }, { success: function() {
      console.log("#### PUSH OK");
   }, error: function(error) {
