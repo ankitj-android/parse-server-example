@@ -13,10 +13,17 @@ Parse.Cloud.define('pushChannelTest', function(request, response) {
   var action = params.action;
   var message = params.message;
   var customData = params.customData;
+  var targetUserId = params.targetUserId
+
+  console.log(customData + ", " + targetUserId);
+  
+  var userQuery = new Parse.Query(Parse.User);
+  userQuery.equalTo("objectId", targetUserId);
 
   // use to custom tweak whatever payload you wish to send
   var pushQuery = new Parse.Query(Parse.Installation);
   pushQuery.equalTo("deviceType", "android");
+  pushQuery.matchesQuery("user", userQuery);
 
   var payload =  {
       "alert": message,
