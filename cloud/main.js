@@ -12,11 +12,15 @@ Parse.Cloud.define('pushChannelTest', function(request, response) {
   // extract out the channel to send
   var action = params.action;
   var message = params.message;
-  var customData = params.customData;
   var targetUserId = params.targetUserId
 
-  console.log(customData + ", " + targetUserId);
-  
+// data
+  var customData = params.customData;
+  var orderId = params.orderId
+  var fromChef = params.fromChef
+
+  console.log(customData + ", " + targetUserId + "," + orderId + "," + fromChef);
+
   var userQuery = new Parse.Query(Parse.User);
   userQuery.equalTo("objectId", targetUserId);
 
@@ -28,7 +32,9 @@ Parse.Cloud.define('pushChannelTest', function(request, response) {
   var payload =  {
       "alert": message,
       "action": action,
-      "customdata": customData
+      "customdata": customData,
+      "fromChef": fromChef,
+      "orderId": orderId
   };
 
   // Note that useMasterKey is necessary for Push notifications to succeed.
