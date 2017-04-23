@@ -16,6 +16,8 @@ Parse.Cloud.define('pushChannelTest', function(request, response) {
 
 // data
   var customData = params.customData;
+  var title = params.title
+  var text = params.text
   var orderId = params.orderId
   var fromChef = params.fromChef
 
@@ -33,6 +35,8 @@ Parse.Cloud.define('pushChannelTest', function(request, response) {
       "alert": message,
       "action": action,
       "customdata": customData,
+      "title": title,
+      "text": text
       "fromChef": fromChef,
       "orderId": orderId
   };
