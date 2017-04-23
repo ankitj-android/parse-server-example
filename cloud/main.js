@@ -20,7 +20,6 @@ Parse.Cloud.define('pushChannelTest', function(request, response) {
   var orderId = params.orderId
   var fromChef = params.fromChef
 
-  
   var userQuery = new Parse.Query(Parse.User);
   userQuery.equalTo("objectId", targetUserId);
 
@@ -33,7 +32,7 @@ Parse.Cloud.define('pushChannelTest', function(request, response) {
       "alert": message,
       "action": action,
       "title": title,
-      "text": text
+      "text": text,
       "fromChef": fromChef,
       "orderId": orderId
   };
